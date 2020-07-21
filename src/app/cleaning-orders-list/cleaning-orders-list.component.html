@@ -1,0 +1,44 @@
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Description</th>
+          <th scope="col">Dateorder</th>
+          <th scope="col">Clientnumber</th>
+          <th scope="col">Branch</th>
+          <th scope="col">Pickedup</th>
+          <th scope="col">Price</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cleaningOrder of cleaningOrders">
+          <td>{{ cleaningOrder.id }}</td>
+          <td>{{ cleaningOrder.description }}</td>
+          <td>{{ cleaningOrder.dateOrder | date: 'dd/MM/yyyy'}}</td>
+          <td>{{ cleaningOrder.clientNumber }}</td>
+          <td>{{ cleaningOrder.branch }}</td>
+          <td>{{ cleaningOrder.pickedUp }}</td>
+          <td>{{ cleaningOrder.price }}</td>
+          <td>
+            <button (click)="deleteCleaningOrder(cleaningOrder.id)" class="btn btn-danger">Delete</button>
+            <button (click)="editCleaningOrder(cleaningOrder.id)" class="btn btn-light">Edit</button>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><strong> {{sales}} </strong></td>
+          <td></td>
+        </tr>
+      </tbody>
+    
+    </table>
+  </div>
+</div>

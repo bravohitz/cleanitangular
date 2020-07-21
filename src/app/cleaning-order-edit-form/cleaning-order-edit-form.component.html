@@ -1,0 +1,49 @@
+<div class="card my-5">
+  <div class="card-body">
+    <h2>Edit</h2>
+    <form (ngSubmit)="onSubmit()" #cleaningOrderForm="ngForm">
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input type="text" [(ngModel)]="cleaningOrder.description" 
+          class="form-control" 
+          id="description" 
+          name="description" 
+          placeholder="describe the stuff"
+          required #description="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="clientNumber">Clientnumber</label>
+        <input type="number" [(ngModel)]="cleaningOrder.clientNumber" 
+          class="form-control" 
+          id="clientNumber" 
+          name="clientNumber" 
+          placeholder="Enter the Clientnumber"
+          required #clientNumber="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="branch">Branches:</label>
+        <select class="form-control"  name="branch"  [(ngModel)]="cleaningOrder.branch"  id="branch">
+            <option>St. Gallen</option>
+            <option selected>Zürich</option>
+            <option>Bern</option>
+            <option>Basel</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="pickedUp">Picked Up?:</label>
+        <input type="checkbox" class="form-control"  name="pickedUp"  [(ngModel)]="cleaningOrder.pickedUp"  id="pickedUp"/>
+      </div>
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input type="number" [(ngModel)]="cleaningOrder.price" 
+          class="form-control" 
+          id="price" 
+          name="price" 
+          placeholder="Enter the price"
+          required #clientNumber="ngModel">
+      </div>
+      <button type="submit" [disabled]="!cleaningOrderForm.form.valid" 
+        class="btn btn-info">Submit</button>
+    </form>
+  </div>
+</div>
